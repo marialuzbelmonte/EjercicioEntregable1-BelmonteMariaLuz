@@ -1,4 +1,4 @@
-package org.example.Logic.Payment;
+package org.app.Logic.Payment;
 
 public class PaymentRequest {
     private double amount;

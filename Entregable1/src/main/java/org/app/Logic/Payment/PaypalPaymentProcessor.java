@@ -1,4 +1,4 @@
-package org.example.Logic.Payment;
+package org.app.Logic.Payment;
 
 public class PaypalPaymentProcessor extends PaymentProcessor{
     public PaypalPaymentProcessor(PaymentGateway gateway) {

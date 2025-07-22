@@ -1,4 +1,4 @@
-package org.example.Logic.Payment;
+package org.app.Logic.Payment;
 
 public class MercadoPagoPaymentProcessor extends PaymentProcessor{
     public MercadoPagoPaymentProcessor(PaymentGateway gateway) {

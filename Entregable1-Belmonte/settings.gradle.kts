@@ -1,1 +1,0 @@
-rootProject.name = "Entregable1-Belmonte"
