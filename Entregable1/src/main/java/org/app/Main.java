@@ -39,6 +39,8 @@ public class Main {
         System.out.println("Ingrese el metodo de envio (air, truck, boat):");
         String shippingMethod = scanner.nextLine().toLowerCase();
 
+        scanner.close();
+
         CompletableFuture<Double> shippingCostFuture = CompletableFuture.supplyAsync(() -> {
             Dimensions dimensions = new Dimensions(height, width, length);
             ShippingStrategy strategy;

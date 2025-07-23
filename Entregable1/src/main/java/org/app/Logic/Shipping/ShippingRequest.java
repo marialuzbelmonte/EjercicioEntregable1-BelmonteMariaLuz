@@ -28,5 +28,4 @@ public class ShippingRequest {
     public String getDestination() {
         return destination;
     }
-
 }

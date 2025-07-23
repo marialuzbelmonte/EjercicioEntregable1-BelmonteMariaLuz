@@ -18,9 +18,11 @@ java {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation ("org.junit.jupiter:junit-jupiter:5.10.0")
+    testImplementation ("org.mockito:mockito-core:5.12.0")
+    testImplementation ("org.mockito:mockito-junit-jupiter:5.12.0")
 }
 
-// Configura la versión de JaCoCo
 the<JacocoPluginExtension>().toolVersion = "0.8.10"
 
 tasks.test {

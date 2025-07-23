@@ -1,20 +1,22 @@
-package PaymentTest;
+package org.app.Logic.Payment;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import org.app.Logic.Payment.PaypalGateway;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PaypalGatewayTest {
 
     @Test
     public void testAuthorize() {
         PaypalGateway gateway = new PaypalGateway();
-        assertTrue(gateway.authorize(100.0));
+        boolean result = gateway.authorize(100.0);
+        assertTrue(result);
     }
 
     @Test
     public void testCapture() {
         PaypalGateway gateway = new PaypalGateway();
-        assertTrue(gateway.capture(100.0));
+        boolean result = gateway.capture(100.0);
+        assertTrue(result);
     }
 }
+

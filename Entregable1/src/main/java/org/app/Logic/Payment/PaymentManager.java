@@ -15,7 +15,6 @@ public class PaymentManager {
             default:
                 throw new IllegalArgumentException("Proveedor no soportado: " + request.getProvider());
         }
-
         return processor.processPayment(request.getAmount());
     }
 }
