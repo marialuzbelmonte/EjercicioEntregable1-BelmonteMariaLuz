@@ -2,11 +2,12 @@ package org.app.Logic.Payment;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 public class MercadoPagoPaymentProcessorTest {
-
     private PaymentGateway gateway;
     private MercadoPagoPaymentProcessor processor;
 
@@ -45,3 +46,4 @@ public class MercadoPagoPaymentProcessorTest {
         assertTrue(processor.refundPayment(80));
     }
 }
+
