@@ -11,20 +11,7 @@ public class Dimensions {
         this.length = length;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
     public double getVolume() {
         return height * width * length;
     }
-
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.verify;
 
 public class MercadoPagoPaymentProcessorTest {
     private PaymentGateway gateway;
@@ -19,31 +18,45 @@ public class MercadoPagoPaymentProcessorTest {
 
     @Test
     public void testProcessPayment_Success() {
-        when(gateway.authorize(200)).thenReturn(true);
-        when(gateway.capture(200)).thenReturn(true);
+        when(gateway.authorize(180)).thenReturn(true);
+        when(gateway.capture(180)).thenReturn(true);
 
-        boolean result = processor.processPayment(200);
+        boolean result = processor.processPayment(180);
 
         assertTrue(result);
-        verify(gateway).authorize(200);
-        verify(gateway).capture(200);
+        verify(gateway).authorize(180);
+        verify(gateway).capture(180);
     }
 
     @Test
-    public void testProcessPayment_CaptureFails() {
-        when(gateway.authorize(200)).thenReturn(true);
-        when(gateway.capture(200)).thenReturn(false);
+    public void testProcessPayment_AuthorizeFails() {
+        when(gateway.authorize(200)).thenReturn(false);  // Autorizar falla
+        when(gateway.capture(200)).thenReturn(true);
 
         boolean result = processor.processPayment(200);
 
         assertFalse(result);
         verify(gateway).authorize(200);
-        verify(gateway).capture(200);
+        verify(gateway, never()).capture(200);
+    }
+
+    @Test
+    public void testProcessPayment_CaptureFails() {
+        when(gateway.authorize(150)).thenReturn(true);
+        when(gateway.capture(150)).thenReturn(false);  // Captura falla
+
+        boolean result = processor.processPayment(150);
+
+        assertFalse(result);
+        verify(gateway).authorize(150);
+        verify(gateway).capture(150);
     }
 
     @Test
     public void testRefundPayment() {
         assertTrue(processor.refundPayment(80));
     }
+
 }
+
 

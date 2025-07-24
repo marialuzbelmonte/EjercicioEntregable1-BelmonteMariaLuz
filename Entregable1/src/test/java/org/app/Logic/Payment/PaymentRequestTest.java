@@ -7,9 +7,9 @@ public class PaymentRequestTest {
 
     @Test
     public void testConstructorAndGetters() {
-        PaymentRequest request = new PaymentRequest(150.0, "paypal");
+        PaymentRequest request = new PaymentRequest(185.0, "paypal");
 
-        assertEquals(150.0, request.getAmount());
+        assertEquals(185.0, request.getAmount());
         assertEquals("paypal", request.getProvider());
     }
 }

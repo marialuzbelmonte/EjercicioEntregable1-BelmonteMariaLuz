@@ -7,7 +7,7 @@ public class PaymentManagerTest {
 
     @Test
     public void testProcessPayment_Paypal() {
-        PaymentRequest request = new PaymentRequest(150, "paypal");
+        PaymentRequest request = new PaymentRequest(175, "paypal");
         PaymentManager manager = new PaymentManager();
 
         boolean result = manager.processPayment(request);
@@ -17,7 +17,7 @@ public class PaymentManagerTest {
 
     @Test
     public void testProcessPayment_MercadoPago() {
-        PaymentRequest request = new PaymentRequest(250, "mercadopago");
+        PaymentRequest request = new PaymentRequest(280, "mercadopago");
         PaymentManager manager = new PaymentManager();
 
         boolean result = manager.processPayment(request);
@@ -27,13 +27,20 @@ public class PaymentManagerTest {
 
     @Test
     public void testProcessPayment_InvalidProvider() {
-        PaymentRequest request = new PaymentRequest(100, "otro");
+        PaymentRequest request = new PaymentRequest(90, "desconocido");
         PaymentManager manager = new PaymentManager();
 
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 manager.processPayment(request));
 
-        assertEquals("Proveedor no soportado: otro", exception.getMessage());
+        assertEquals("Proveedor invalido: desconocido", exception.getMessage());
     }
 }
+
+
+
+
+
+
+
 

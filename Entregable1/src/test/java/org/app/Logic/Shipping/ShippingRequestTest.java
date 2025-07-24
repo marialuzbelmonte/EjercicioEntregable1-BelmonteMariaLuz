@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 public class ShippingRequestTest {
     @Test
     public void testGetters() {
-        Dimensions dim = new Dimensions(1, 2, 3);
-        ShippingRequest request = new ShippingRequest(10.5, dim, "Origen", "Destino");
+        Dimensions dim = new Dimensions(4, 5, 6);
+        ShippingRequest request = new ShippingRequest(20.75, dim, "Rafaela", "Buenos Aires");
 
-        assertEquals(10.5, request.getWeight(), 0.0001);
+        assertEquals(20.75, request.getWeight(), 0.0001);
         assertEquals(dim, request.getDimensions());
-        assertEquals("Origen", request.getOrigin());
-        assertEquals("Destino", request.getDestination());
+        assertEquals("Rafaela", request.getOrigin());
+        assertEquals("Buenos Aires", request.getDestination());
     }
 }
+
 

@@ -7,13 +7,13 @@ public class MercadoPagoPaymentProcessor extends PaymentProcessor{
 
     @Override
     public boolean processPayment(double amount) {
-        System.out.println("[MercadoPago Processor] Procesando pago...");
+        System.out.println("*** MercadoPago Processor *** Procesando pago...");
         return gateway.authorize(amount) && gateway.capture(amount);
     }
 
     @Override
     public boolean refundPayment(double amount) {
-        System.out.println("[MercadoPago Processor] Reembolsando $" + amount);
+        System.out.println("*** MercadoPago Processor *** Reembolsando $" + amount);
         return true;
     }
 }

@@ -7,13 +7,14 @@ public class AirShippingStrategyTest {
 
     @Test
     public void testCalculateCost() {
-        Dimensions dim = new Dimensions(2, 2, 2); // volume = 8
-        ShippingRequest request = new ShippingRequest(10, dim, "A", "B");
+        Dimensions dim = new Dimensions(3, 2, 1); // volume = 6
+        ShippingRequest request = new ShippingRequest(12, dim, "A", "B");
         AirShippingStrategy strategy = new AirShippingStrategy();
 
-        // cost = 5.0 * 10 + 0.02 * 8 = 50 + 0.16 = 50.16
+        // cálculo --> cost = 5.0 * 12 + 0.02 * 6 = 60 + 0.12 = 60.12
         double cost = strategy.calculateCost(request);
-        assertEquals(50.16, cost, 0.0001);
+        assertEquals(60.12, cost, 0.0001);
     }
 }
+
 
