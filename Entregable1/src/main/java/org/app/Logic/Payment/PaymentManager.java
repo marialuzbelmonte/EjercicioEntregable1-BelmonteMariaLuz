@@ -13,7 +13,7 @@ public class PaymentManager {
                 processor = new MercadoPagoPaymentProcessor(new MercadoPagoGateway());
                 break;
             default:
-                throw new IllegalArgumentException("Proveedor invalido: " + request.getProvider());
+                throw new IllegalArgumentException("Proveedor no valido: " + request.getProvider());
         }
         return processor.processPayment(request.getAmount());
     }

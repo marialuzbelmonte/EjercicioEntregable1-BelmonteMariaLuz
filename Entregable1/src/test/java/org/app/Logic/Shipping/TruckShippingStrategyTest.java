@@ -11,7 +11,7 @@ public class TruckShippingStrategyTest {
         ShippingRequest request = new ShippingRequest(4, dim, "CityA", "CityA");
         TruckShippingStrategy strategy = new TruckShippingStrategy();
 
-        // cost = 2.5 * 4 * 1.0 = 10.0
+        // cálculo --> cost = 2.5 * 4 * 1.0 = 10.0
         double cost = strategy.calculateCost(request);
         assertEquals(10.0, cost, 0.0001);
     }
@@ -22,7 +22,7 @@ public class TruckShippingStrategyTest {
         ShippingRequest request = new ShippingRequest(5, dim, "CityA", "CityB");
         TruckShippingStrategy strategy = new TruckShippingStrategy();
 
-        // cost = 2.5 * 5 * 1.5 = 18.75
+        // cálculo --> cost = 2.5 * 5 * 1.5 = 18.75
         double cost = strategy.calculateCost(request);
         assertEquals(18.75, cost, 0.0001);
     }

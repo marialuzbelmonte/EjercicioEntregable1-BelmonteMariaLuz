@@ -30,7 +30,7 @@ public class MercadoPagoPaymentProcessorTest {
 
     @Test
     public void testProcessPayment_AuthorizeFails() {
-        when(gateway.authorize(200)).thenReturn(false);  // Autorizar falla
+        when(gateway.authorize(200)).thenReturn(false);
         when(gateway.capture(200)).thenReturn(true);
 
         boolean result = processor.processPayment(200);
@@ -43,7 +43,7 @@ public class MercadoPagoPaymentProcessorTest {
     @Test
     public void testProcessPayment_CaptureFails() {
         when(gateway.authorize(150)).thenReturn(true);
-        when(gateway.capture(150)).thenReturn(false);  // Captura falla
+        when(gateway.capture(150)).thenReturn(false);
 
         boolean result = processor.processPayment(150);
 

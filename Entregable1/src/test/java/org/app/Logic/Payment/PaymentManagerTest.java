@@ -33,7 +33,7 @@ public class PaymentManagerTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 manager.processPayment(request));
 
-        assertEquals("Proveedor invalido: desconocido", exception.getMessage());
+        assertEquals("Proveedor no valido: desconocido", exception.getMessage());
     }
 }
 

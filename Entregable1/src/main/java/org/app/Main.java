@@ -9,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Datos del pago
+        System.out.println("****************** Datos del pago ******************");
+
         System.out.println("Ingrese el monto a pagar:");
         double amount = scanner.nextDouble();
         scanner.nextLine();
@@ -17,15 +18,19 @@ public class Main {
         System.out.println("Ingrese el proveedor de pago (paypal o mercadopago):");
         String provider = scanner.nextLine().toLowerCase();
 
+        System.out.println();
+
+        System.out.println("****************** Datos del envio ******************");
+
         // Datos del envío
         System.out.println("Ingrese el peso del paquete (en kg):");
         double weight = scanner.nextDouble();
 
-        System.out.println("Ingrese ancho (en cm):");
+        System.out.println("Ingrese el ancho del paquete (en cm):");
         double width = scanner.nextDouble();
-        System.out.println("Ingrese alto (en cm):");
+        System.out.println("Ingrese el alto del paquete (en cm):");
         double height = scanner.nextDouble();
-        System.out.println("Ingrese largo (en cm):");
+        System.out.println("Ingrese largo del paquete (en cm):");
         double length = scanner.nextDouble();
 
         scanner.nextLine();
@@ -40,6 +45,9 @@ public class Main {
         String shippingMethod = scanner.nextLine().toLowerCase();
 
         scanner.close();
+
+        System.out.println();
+        System.out.println("********************************************************");
 
         CompletableFuture<Double> shippingCostFuture = CompletableFuture.supplyAsync(() -> {
             Dimensions dimensions = new Dimensions(height, width, length);
@@ -74,6 +82,7 @@ public class Main {
         });
 
         paymentFuture.join();
-        System.out.println("Pago y envio completados.");
+
+        System.out.println("*************** Pago y envio completados ***************");
     }
 }
